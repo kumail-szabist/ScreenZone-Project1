@@ -7,7 +7,6 @@
   <p style="text-align:center; margin-bottom:25px;">Please enter your delivery and payment details to complete your order.</p>
 
   <form id="placeOrderForm" onsubmit="handleOrder(event)">
-    <!-- User Details -->
     <div style="margin-bottom:20px;">
       <label style="color:gold;">Full Name:</label><br>
       <input type="text" id="name" name="name" required 
@@ -26,7 +25,6 @@
                 style="width:100%; padding:10px; border-radius:6px; border:none; margin-top:5px;"></textarea>
     </div>
 
-    <!-- Payment Section -->
     <div style="margin-bottom:25px;">
       <label style="color:gold;">Mode of Payment:</label><br>
       <select id="paymentMode" name="paymentMode" required
@@ -55,9 +53,8 @@
     </button>
   </form>
 </section>
-
-<!-- SweetAlert2 for success message -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- sweetalert connection -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
 
 <script>
   const paymentSelect = document.getElementById('paymentMode');
@@ -90,9 +87,8 @@
       color: '#fff',
       confirmButtonColor: 'gold'
     });
-    
-    // Optionally clear form
-    document.getElementById('placeOrderForm').reset();
+    // clear form
+    document.getElementById('placeOrderForm').reset(); 
     cardDetails.style.display = 'none';
   }
 </script>

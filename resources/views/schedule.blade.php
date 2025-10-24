@@ -14,39 +14,130 @@
         <th style="padding:10px;">Action</th>
       </tr>
     </thead>
+
     <tbody>
-      @php
-        $movies = [
-          ['name' => 'Inception', 'times' => ['12:00 PM', '3:00 PM', '6:00 PM']],
-          ['name' => 'avengers', 'times' => ['1:00 PM', '4:00 PM', '7:00 PM']],
-          ['name' => 'Joker', 'times' => ['11:00 AM', '2:00 PM', '5:00 PM']],
-        ];
+      <!-- Inception -->
+      <tr style="border-bottom:1px solid #ccc;">
+        <td style="padding:10px;">Inception</td>
+        <td style="padding:10px;">24 Oct 2025</td>
+        <td style="padding:10px;">12:00 PM</td>
+        <td style="padding:10px;">
+          <a href="{{ route('booking', ['movie' => 'inception']) }}">
+            <button style="background-color:gold; border:none; padding:8px 15px; border-radius:6px; cursor:pointer;">
+              Book Now
+            </button>
+          </a>
+        </td>
+      </tr>
 
-        $dates = [
-          now()->format('d M Y'),
-          now()->addDay()->format('d M Y'),
-          now()->addDays(2)->format('d M Y'),
-        ];
-      @endphp
+      <tr style="border-bottom:1px solid #ccc;">
+        <td style="padding:10px;">Inception</td>
+        <td style="padding:10px;">25 Oct 2025</td>
+        <td style="padding:10px;">3:00 PM</td>
+        <td style="padding:10px;">
+          <a href="{{ route('booking', ['movie' => 'inception']) }}">
+            <button style="background-color:gold; border:none; padding:8px 15px; border-radius:6px; cursor:pointer;">
+              Book Now
+            </button>
+          </a>
+        </td>
+      </tr>
 
-      @foreach($movies as $movie)
-        @foreach($dates as $date)
-          <tr style="border-bottom:1px solid #ccc;">
-            <td style="padding:10px;">{{ $movie['name'] }}</td>
-            <td style="padding:10px;">{{ $date }}</td>
-            <td style="padding:10px;">{{ $movie['times'][array_rand($movie['times'])] }}</td>
-            <td style="padding:10px;">
-              <a href="{{ route('booking', ['movie' => strtolower($movie['name'])]) }}">
-                <button style="background-color:gold; border:none; padding:8px 15px; border-radius:6px; cursor:pointer;">
-                  Book Now
-                </button>
-              </a>
-            </td>
-          </tr>
-        @endforeach
-      @endforeach
+      <tr style="border-bottom:1px solid #ccc;">
+        <td style="padding:10px;">Inception</td>
+        <td style="padding:10px;">26 Oct 2025</td>
+        <td style="padding:10px;">6:00 PM</td>
+        <td style="padding:10px;">
+          <a href="{{ route('booking', ['movie' => 'inception']) }}">
+            <button style="background-color:gold; border:none; padding:8px 15px; border-radius:6px; cursor:pointer;">
+              Book Now
+            </button>
+          </a>
+        </td>
+      </tr>
+
+      <!-- Avengers -->
+      <tr style="border-bottom:1px solid #ccc;">
+        <td style="padding:10px;">Avengers</td>
+        <td style="padding:10px;">24 Oct 2025</td>
+        <td style="padding:10px;">1:00 PM</td>
+        <td style="padding:10px;">
+          <a href="{{ route('booking', ['movie' => 'avengers']) }}">
+            <button style="background-color:gold; border:none; padding:8px 15px; border-radius:6px; cursor:pointer;">
+              Book Now
+            </button>
+          </a>
+        </td>
+      </tr>
+
+      <tr style="border-bottom:1px solid #ccc;">
+        <td style="padding:10px;">Avengers</td>
+        <td style="padding:10px;">25 Oct 2025</td>
+        <td style="padding:10px;">4:00 PM</td>
+        <td style="padding:10px;">
+          <a href="{{ route('booking', ['movie' => 'avengers']) }}">
+            <button style="background-color:gold; border:none; padding:8px 15px; border-radius:6px; cursor:pointer;">
+              Book Now
+            </button>
+          </a>
+        </td>
+      </tr>
+
+      <tr style="border-bottom:1px solid #ccc;">
+        <td style="padding:10px;">Avengers</td>
+        <td style="padding:10px;">26 Oct 2025</td>
+        <td style="padding:10px;">7:00 PM</td>
+        <td style="padding:10px;">
+          <a href="{{ route('booking', ['movie' => 'avengers']) }}">
+            <button style="background-color:gold; border:none; padding:8px 15px; border-radius:6px; cursor:pointer;">
+              Book Now
+            </button>
+          </a>
+        </td>
+      </tr>
+
+      <!-- Joker -->
+      <tr style="border-bottom:1px solid #ccc;">
+        <td style="padding:10px;">Joker</td>
+        <td style="padding:10px;">24 Oct 2025</td>
+        <td style="padding:10px;">11:00 AM</td>
+        <td style="padding:10px;">
+          <a href="{{ route('booking', ['movie' => 'joker']) }}">
+            <button style="background-color:gold; border:none; padding:8px 15px; border-radius:6px; cursor:pointer;">
+              Book Now
+            </button>
+          </a>
+        </td>
+      </tr>
+
+      <tr style="border-bottom:1px solid #ccc;">
+        <td style="padding:10px;">Joker</td>
+        <td style="padding:10px;">25 Oct 2025</td>
+        <td style="padding:10px;">2:00 PM</td>
+        <td style="padding:10px;">
+          <a href="{{ route('booking', ['movie' => 'joker']) }}">
+            <button style="background-color:gold; border:none; padding:8px 15px; border-radius:6px; cursor:pointer;">
+              Book Now
+            </button>
+          </a>
+        </td>
+      </tr>
+
+      <tr style="border-bottom:1px solid #ccc;">
+        <td style="padding:10px;">Joker</td>
+        <td style="padding:10px;">26 Oct 2025</td>
+        <td style="padding:10px;">5:00 PM</td>
+        <td style="padding:10px;">
+          <a href="{{ route('booking', ['movie' => 'joker']) }}">
+            <button style="background-color:gold; border:none; padding:8px 15px; border-radius:6px; cursor:pointer;">
+              Book Now
+            </button>
+          </a>
+        </td>
+      </tr>
     </tbody>
   </table>
+
   <br><br><br><br><br>
 </section>
 @endsection

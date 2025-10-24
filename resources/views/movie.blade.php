@@ -17,7 +17,6 @@
     Experience it on the big screen only at <b>ScreenZone Cinemas</b>!
   </p>
 
-  <!-- 🧾 Movie Details -->
   <div style="margin-top:25px; text-align:left; background-color:#111; color:#fff; padding:20px; border-radius:8px;">
     <p><strong>🎭 Cast:</strong> 
       @if(strtolower($name) === 'inception')

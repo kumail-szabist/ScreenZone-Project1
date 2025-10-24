@@ -14,7 +14,6 @@
         position: relative;
     ">
 
-  <!-- Dark overlay for readability -->
   <div style="
         position: absolute;
         top: 0;
@@ -26,7 +25,6 @@
     ">
   </div>
 
-  <!-- Main content -->
   <div style="z-index: 1;">
     <h2 style="font-size: 3rem; font-weight: bold; margin-bottom: 15px;">Welcome to ScreenZone</h2>
     <p style="font-size: 1.25rem; margin-bottom: 25px;">

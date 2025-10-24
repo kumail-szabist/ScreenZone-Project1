@@ -7,10 +7,8 @@
   <form action="{{ route('checkout') }}" method="GET" style="margin-top:20px; text-align:left;">
     <p><strong>🎬 Movie:</strong> {{ ucfirst($movie) }}</p>
 
-    <!-- Hidden input for movie name -->
     <input type="hidden" name="movie" value="{{ $movie }}">
 
-    <!-- 📅 Day Selection -->
     <label for="day"><strong>Select Day:</strong></label><br>
     <select id="day" name="day" style="width:100%; padding:8px; margin-bottom:15px;" required>
       <option value="Friday">Friday</option>
@@ -18,7 +16,6 @@
       <option value="Sunday">Sunday</option>
     </select>
 
-    <!-- ⏰ Time Selection -->
     <label for="time"><strong>Select Time:</strong></label><br>
     <select id="time" name="time" style="width:100%; padding:8px; margin-bottom:15px;" required>
       <option value="12:00 PM">12:00 PM</option>
@@ -27,11 +24,9 @@
       <option value="9:00 PM">9:00 PM</option>
     </select>
 
-    <!-- 💺 Seats -->
     <label for="seats"><strong>Number of Seats:</strong></label><br>
     <input type="number" id="seats" name="seats" min="1" max="10" value="1" style="width:100%; padding:8px; margin-bottom:15px;" required>
 
-    <!-- 💵 Price -->
     <p id="price-display" style="text-align:center;">🎟️ Ticket Price: Rs <span id="price">500</span></p>
     <input type="hidden" id="total" name="total" value="500">
 
@@ -47,7 +42,7 @@
   const seatInput = document.getElementById('seats');
   const priceDisplay = document.getElementById('price');
   const totalInput = document.getElementById('total');
-  const basePrice = 500; // per seat
+  const basePrice = 1500; // per seat
 
   seatInput.addEventListener('input', () => {
     const total = basePrice * seatInput.value;

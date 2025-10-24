@@ -50,14 +50,13 @@
   color: #ff4444;
 }
 
-/* Hamburger icon (hidden on desktop) */
 .menu-toggle {
   display: none;
   font-size: 1.8rem;
   cursor: pointer;
 }
 
-/* 📱 Mobile styles */
+/* in small screen the css will change for navbar */
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;

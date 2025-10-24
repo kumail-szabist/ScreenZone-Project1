@@ -8,7 +8,6 @@
 
   <div style="display:flex; gap:30px; flex-wrap:wrap;">
 
-    <!-- LEFT: Booking Details -->
     <div style="flex:1; min-width:300px; background:#111; padding:20px; border-radius:10px;">
       <h3 style="color:gold;">Booking Summary</h3>
       <p><strong>Movie:</strong> {{ request('movie') ?? 'N/A' }}</p>
@@ -37,7 +36,7 @@
       <div id="snack-options" style="display:flex; flex-direction:column; gap:15px;">
         @php
           $snacks = [
-            ['name' => 'Popcorn', 'price' => 200],
+            ['name' => 'Popcorn', 'price' => 500],
             ['name' => 'Cold Drink', 'price' => 150],
             ['name' => 'Chips', 'price' => 120],
             ['name' => 'Juice', 'price' => 180],

@@ -7,7 +7,6 @@
 
   <div style="display:flex; justify-content:center; align-items:flex-start; flex-wrap:wrap; gap:40px; margin-top:30px;">
 
-    <!-- 📨 Contact Form -->
     <form style="width:350px; background:#111; color:gold; padding:25px; border-radius:10px; text-align:left;">
       <label for="name">Your Name</label><br>
       <input type="text" id="name" placeholder="Enter your name" style="width:100%; padding:10px; border-radius:6px; border:none; margin:8px 0 15px 0;"><br>

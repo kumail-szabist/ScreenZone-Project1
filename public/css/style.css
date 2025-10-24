@@ -1,0 +1,266 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #111;
+  color: #f5f5f5;
+  
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000;
+  padding: 15px 30px;
+}
+
+.logo {
+  color: gold;
+  margin: 0;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #f5f5f5;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: gold;
+}
+
+footer {
+  background-color: #0000004d;
+  text-align: center;
+  padding: 5px;
+  color: #aaa;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+
+#homemain{
+    padding:60px 20px;
+    color: white;
+    background-color: #000;
+}
+
+/* ===== Button Styling ===== */
+#homemain button {
+  background-color: gold;
+  color: #000;
+  border: none;
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+}
+
+#homemain button:hover {
+  background-color: #000;
+  color: gold;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+  transform: scale(1.05);
+}
+
+
+
+/* ===== Movies Page ===== */
+#movies-page {
+  text-align: center;
+  padding: 40px 20px;
+  color: #fff;
+  background-color: #111;
+  min-height: 100vh;
+}
+
+/* 🔍 Search Bar */
+.search-bar {
+  margin: 20px auto 40px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.search-bar input {
+  padding: 10px 15px;
+  width: 250px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+
+.search-bar button {
+  background-color: gold;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.search-bar button:hover {
+  background-color: #000;
+  color: gold;
+}
+
+/* 🎬 Movie Cards */
+.movie-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.movie-card {
+  background-color: #222;
+  border-radius: 10px;
+  width: 220px;
+  padding: 15px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.movie-card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px gold;
+}
+
+
+/* ===== Movie Detail Page ===== */
+#movie-detail {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+#movie-detail h2 {
+  color: gold;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.trailer video {
+  width: 80%;
+  max-width: 700px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+  margin-bottom: 20px;
+}
+
+.description {
+  max-width: 700px;
+  margin: 0 auto 20px;
+  font-size: 1rem;
+  color: #ddd;
+}
+
+.rating {
+  font-size: 1.2rem;
+  color: gold;
+  margin-bottom: 20px;
+}
+
+#showtime {
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: none;
+  background-color: #111;
+  color: gold;
+  font-weight: bold;
+}
+
+
+/* ===== Book Now Button ===== */
+#book-btn {
+  background-color: gold;
+  color: #000;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+}
+
+#book-btn:hover {
+  background-color: #000;
+  color: gold;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+  transform: scale(1.05);
+}
+
+
+/* ===== Booking Page ===== */
+#booking-page {
+  text-align: center;
+  padding: 40px 20px;
+  color: white;
+  background-color: #000;
+  min-height: 100vh;
+}
+
+.booking-form {
+  background-color: #111;
+  border-radius: 10px;
+  padding: 25px;
+  max-width: 400px;
+  margin: 0 auto;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+}
+
+.booking-form label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+  color: gold;
+}
+
+.booking-form select,
+.booking-form input {
+  width: 80%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  margin-top: 8px;
+  outline: none;
+}
+
+#checkout-btn {
+  background-color: gold;
+  color: #000;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#checkout-btn:hover {
+  background-color: #000;
+  color: gold;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+  transform: scale(1.05);
+}

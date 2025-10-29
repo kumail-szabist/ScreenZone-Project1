@@ -11,6 +11,8 @@
       <li><a href="{{ route('movies') }}">Movies</a></li>
       <li><a href="{{ route('schedule') }}">Booking</a></li>
       <li><a href="{{ route('contact') }}">Contact</a></li>
+      <li><a href="{{ route('checkout') }}"> 🛒 </a></li>
+
     </ul>
   </nav>
 </header>

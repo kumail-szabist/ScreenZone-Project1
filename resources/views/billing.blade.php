@@ -53,6 +53,7 @@
     </button>
   </form>
 </section>
+
 <!-- sweetalert connection -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
 
@@ -60,16 +61,14 @@
   const paymentSelect = document.getElementById('paymentMode');
   const cardDetails = document.getElementById('card-details');
 
+  // Show card details only if "Credit Card" is selected
   paymentSelect.addEventListener('change', function() {
-    if (this.value === 'Credit Card') {
-      cardDetails.style.display = 'block';
-    } else {
-      cardDetails.style.display = 'none';
-    }
+    cardDetails.style.display = (this.value === 'Credit Card') ? 'block' : 'none';
   });
 
   function handleOrder(event) {
     event.preventDefault();
+    
     const name = document.getElementById('name').value;
     const address = document.getElementById('address').value;
     const payment = document.getElementById('paymentMode').value;
@@ -86,10 +85,13 @@
       background: '#111',
       color: '#fff',
       confirmButtonColor: 'gold'
+    }).then(() => {
+      // ✅ Clear local storage
+      localStorage.removeItem('cart');
+
+      // ✅ Redirect to postcheckout.php after alert
+      window.location.href = '/postcheckout';
     });
-    // clear form
-    document.getElementById('placeOrderForm').reset(); 
-    cardDetails.style.display = 'none';
   }
 </script>
 @endsection

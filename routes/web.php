@@ -25,3 +25,8 @@ Route::get('/contact', function () {
 Route::get('/billing', function () {
     return view('billing');
 })->name('billing.form');
+
+
+Route::get('/postcheckout', function () {
+    return view('postcheckout');
+})->name('postcheckout');

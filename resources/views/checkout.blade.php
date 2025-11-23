@@ -28,22 +28,13 @@
       <p style="margin-bottom:15px;">Select optional snacks to enjoy during your movie.</p>
 
       <div id="snack-options" style="display:flex; flex-direction:column; gap:15px;">
-        @php
-          $snacks = [
-            ['name' => 'Popcorn', 'price' => 500],
-            ['name' => 'Cold Drink', 'price' => 150],
-            ['name' => 'Chips', 'price' => 120],
-            ['name' => 'Juice', 'price' => 180],
-          ];
-        @endphp
-
         @foreach ($snacks as $snack)
           <div class="snack-item"
-              data-name="{{ $snack['name'] }}"
-              data-price="{{ $snack['price'] }}"
+              data-name="{{ $snack->title }}"
+              data-price="{{ $snack->price }}"
               style="display:flex; align-items:center; justify-content:space-between; background:#222; padding:10px 15px; border-radius:8px;">
             <div>
-              <strong>{{ $snack['name'] }}</strong> (Rs {{ $snack['price'] }})
+              <strong>{{ $snack->title }}</strong> (Rs {{ $snack->price }})
             </div>
             <div style="display:flex; align-items:center; gap:10px;">
               <button class="decrease" style="background:gold; border:none; padding:5px 10px; border-radius:5px; cursor:pointer;">−</button>

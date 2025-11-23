@@ -31,7 +31,7 @@
       Your favorite cinema — book seats, watch trailers, and enjoy the show!
     </p>
     <button 
-      onclick="window.location.href='{{ route('movies') }}'" 
+      onclick="window.location.href='{{ route('public.movies') }}'" 
       style="
         background-color: #e50914;
         border: none;

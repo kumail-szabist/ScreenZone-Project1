@@ -13,8 +13,7 @@
   </div>
 
   <p class="description" style="font-size:1.1rem; color:#eee; margin-top:20px;">
-    <strong>{{ $name }}</strong> is a blockbuster film filled with action, emotion, and breathtaking visuals. 
-    Experience it on the big screen only at <b>ScreenZone Cinemas</b>!
+    {{ $movie->description }}
   </p>
 
   <div style="margin-top:25px; text-align:left; background-color:#111; color:#fff; padding:20px; border-radius:8px;">

@@ -26,7 +26,8 @@ Route::get('/movies', [MovieController::class, 'publicIndex'])->name('public.mov
 
 Route::view('/contact', 'contact')->name('contact');
 Route::get('/movie/{name}', function ($name) {
-    return view('movie', ['name' => ucfirst($name)]);
+    $movie = \App\Models\Movie::where('title', $name)->firstOrFail();
+    return view('movie', ['movie' => $movie, 'name' => ucfirst($name)]);
 })->name('movie');
 Route::get('/booking/{movie}', function ($movie) {
     return view('booking', ['movie' => ucfirst($movie)]);

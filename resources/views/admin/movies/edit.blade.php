@@ -11,7 +11,7 @@
                 
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <h3 class="h5 fw-bold mb-0">Edit Movie Details</h3>
-                    <a href="{{ route('movies.index') }}" class="btn btn-outline-secondary btn-sm">
+                    <a href="{{ route('admin.movies.index') }}" class="btn btn-outline-secondary btn-sm">
                         &larr; Back to List
                     </a>
                 </div>
@@ -27,9 +27,8 @@
                     </div>
                 @endif
 
-                <form action="{{ route('movies.update',$movie->id) }}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    @method('PUT')
+                <form id="edit-movie-form">
+                    {{-- Validations handled in JS --}}
 
                     <div class="mb-3">
                         <label for="title" class="form-label">Title</label>
@@ -59,6 +58,37 @@
                     </div>
 
                 </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('edit-movie-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            formData.append('_method', 'PUT'); // Fake PUT for Laravel to handle files
+            
+            fetch('/api/movies/{{ $movie->id }}', {
+                method: 'POST', // Must use POST when sending FormData with files + _method=PUT
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                },
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.success) {
+                    alert('Movie updated successfully!');
+                    window.location.href = "{{ route('admin.movies.index') }}";
+                } else {
+                    alert('Error updating movie: ' + (data.message || JSON.stringify(data)));
+                    console.error(data);
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
             </div>
         </div>
     </div>

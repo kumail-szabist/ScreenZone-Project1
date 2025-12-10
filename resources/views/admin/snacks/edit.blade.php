@@ -11,7 +11,7 @@
                 
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <h3 class="h5 fw-bold mb-0">Edit Snack Details</h3>
-                    <a href="{{ route('snacks.index') }}" class="btn btn-outline-secondary btn-sm">
+                    <a href="{{ route('admin.snacks.index') }}" class="btn btn-outline-secondary btn-sm">
                         &larr; Back to List
                     </a>
                 </div>
@@ -27,9 +27,7 @@
                     </div>
                 @endif
 
-                <form action="{{ route('snacks.update',$snack->id) }}" method="POST">
-                    @csrf
-                    @method('PUT')
+                <form id="edit-snack-form">
 
                     <div class="mb-3">
                         <label for="title" class="form-label">Title</label>
@@ -51,6 +49,43 @@
                     </div>
 
                 </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('edit-snack-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            // No files for snacks, so we can use JSON or FormData. 
+            // Using JSON for variety/cleanliness on PUT, but FormData is fine too.
+            // Let's use JSON for PUT here since no files involved.
+            
+            const plainFormData = Object.fromEntries(formData.entries());
+            
+            fetch('/api/snacks/{{ $snack->id }}', {
+                method: 'PUT',
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(plainFormData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.success) {
+                    alert('Snack updated successfully!');
+                    window.location.href = "{{ route('admin.snacks.index') }}";
+                } else {
+                    alert('Error updating snack: ' + (data.message || JSON.stringify(data)));
+                    console.error(data);
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
             </div>
         </div>
     </div>

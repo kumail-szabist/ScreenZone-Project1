@@ -11,7 +11,7 @@
                 
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <h3 class="h5 fw-bold mb-0">Snacks List</h3>
-                    <a href="{{ route('snacks.create') }}" class="btn btn-primary d-inline-flex align-items-center">
+                    <a href="{{ route('admin.snacks.create') }}" class="btn btn-primary d-inline-flex align-items-center">
                         <svg class="me-2" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2z"/></svg>
                         Create New Snack
                     </a>
@@ -34,24 +34,62 @@
                                 <th scope="col" width="200px" class="text-center">Action</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            @foreach ($snacks as $snack)
-                            <tr>
-                                <td>{{ $snack->id }}</td>
-                                <td class="fw-semibold">{{ $snack->title }}</td>
-                                <td>Rs{{ $snack->price }}</td>
-                                <td class="text-center">
-                                    <form action="{{ route('snacks.destroy',$snack->id) }}" method="POST">
-                                        <a href="{{ route('snacks.edit',$snack->id) }}" class="btn btn-sm btn-info text-white">Edit</a>
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
-                                    </form>
-                                </td>
-                            </tr>
-                            @endforeach
+                        <tbody id="snacks-table-body">
+                           {{-- Loaded via JS --}}
                         </tbody>
                     </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('/api/snacks')
+                .then(response => response.json())
+                .then(data => {
+                    const tbody = document.getElementById('snacks-table-body');
+                    tbody.innerHTML = '';
+                    data.forEach(snack => {
+                        const row = `
+                            <tr>
+                                <td>${snack.id}</td>
+                                <td class="fw-semibold">${snack.title}</td>
+                                <td>Rs${snack.price}</td>
+                                <td class="text-center">
+                                    <a href="/admin/snacks/${snack.id}/edit" class="btn btn-sm btn-info text-white">Edit</a>
+                                    <button onclick="deleteSnack(${snack.id})" class="btn btn-sm btn-danger">Delete</button>
+                                </td>
+                            </tr>
+                        `;
+                        tbody.innerHTML += row;
+                    });
+                })
+                .catch(error => console.error('Error fetching snacks:', error));
+        });
+
+        function deleteSnack(id) {
+            if(confirm('Are you sure?')) {
+                fetch(`/api/snacks/${id}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if(data.success) {
+                        alert('Snack deleted successfully');
+                        location.reload(); 
+                    } else {
+                        alert('Error deleting snack');
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+            }
+        }
+    </script>
                 </div>
             </div>
         </div>

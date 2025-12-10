@@ -18,8 +18,13 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
         return view('admin.dashboard');
     })->name('admin.dashboard');
     
-    Route::resource('movies', MovieController::class);
-    Route::resource('snacks', SnackController::class);
+    Route::get('/movies', [MovieController::class, 'index'])->name('admin.movies.index');
+    Route::get('/movies/create', [MovieController::class, 'create'])->name('admin.movies.create');
+    Route::get('/movies/{movie}/edit', [MovieController::class, 'edit'])->name('admin.movies.edit');
+
+    Route::get('/snacks', [SnackController::class, 'index'])->name('admin.snacks.index');
+    Route::get('/snacks/create', [SnackController::class, 'create'])->name('admin.snacks.create');
+    Route::get('/snacks/{snack}/edit', [SnackController::class, 'edit'])->name('admin.snacks.edit');
 });
 
 Route::get('/movies', [MovieController::class, 'publicIndex'])->name('public.movies');

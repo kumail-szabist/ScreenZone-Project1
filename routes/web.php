@@ -15,7 +15,11 @@ Route::get('/dashboard', function () {
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::get('/dashboard', function () {
-        return view('admin.dashboard');
+        $stats = [
+            'movies_count' => \App\Models\Movie::count(),
+            'snacks_count' => \App\Models\Snack::count(),
+        ];
+        return view('admin.dashboard', compact('stats'));
     })->name('admin.dashboard');
     
     Route::get('/movies', [MovieController::class, 'index'])->name('admin.movies.index');
